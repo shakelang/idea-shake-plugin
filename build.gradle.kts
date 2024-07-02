@@ -13,8 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.shakelang.shake.compiler:lexer:0.1.8-SNAPSHOT")
-    implementation("com.shakelang.shake.compiler:parser:0.1.10-SNAPSHOT")
+    implementation("org.antlr:antlr4-intellij-adaptor:0.1")
     implementation("com.shakelang.util:parseutils:0.5.0")
     implementation("com.shakelang.util:common-io:0.6.0")
 }
@@ -55,4 +54,13 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+
+sourceSets {
+    sourceSets["main"].java.srcDirs(
+        "src/main/java",
+        "src/main/kotlin",
+        "src/generated/java",
+        "src/generated/kotlin",
+    )
 }
