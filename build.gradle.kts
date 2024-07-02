@@ -9,6 +9,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation("com.shakelang.shake.compiler:lexer:0.1.8-SNAPSHOT")
+    implementation("com.shakelang.shake.compiler:parser:0.1.10-SNAPSHOT")
+    implementation("com.shakelang.util:parseutils:0.5.0")
+    implementation("com.shakelang.util:common-io:0.6.0")
 }
 
 // Configure Gradle IntelliJ Plugin
@@ -17,7 +25,10 @@ intellij {
     version.set("2023.1.5")
     type.set("IC") // Target IDE Platform
 
-    plugins.set(listOf(/* Plugin Dependencies */))
+    plugins.set(
+        @Suppress("ktlint:standard:comment-wrapping")
+        listOf(/* Plugin Dependencies */),
+    )
 }
 
 tasks {
